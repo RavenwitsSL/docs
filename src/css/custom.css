@@ -1,0 +1,359 @@
+/**
+ * Ravenwits Corporate Identity - Docusaurus Custom Styles
+ * Based on Manual de identidad visual corporativa Ravenwits (Nov 2023)
+ * Typography: Roboto (body), DMSans (headings) - per brand guidelines
+ */
+
+/* ========== ROBOTO - Body text (brand: Light, Regular, Medium, Bold, Black) ========== */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url('/fonts/Roboto-Thin.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('/fonts/Roboto-ExtraLight.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/Roboto-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Roboto-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/Roboto-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/Roboto-SemiBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Roboto-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/fonts/Roboto-ExtraBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/fonts/Roboto-Black.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/Roboto-LightItalic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Roboto-Italic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/Roboto-MediumItalic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Roboto-BoldItalic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/fonts/Roboto-BlackItalic.ttf') format('truetype');
+}
+
+/* ========== DM SANS - Headings & titles (geometric sans, brand alternative) ========== */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url('/fonts/DMSans-Thin.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url('/fonts/DMSans-ExtraLight.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/DMSans-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/DMSans-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/DMSans-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/DMSans-SemiBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/DMSans-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/fonts/DMSans-ExtraBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/fonts/DMSans-Black.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/DMSans-Italic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'DM Sans';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/DMSans-BoldItalic.ttf') format('truetype');
+}
+
+/* Ravenwits color palette from brand guidelines */
+:root {
+  /* Primary greens - from logotipo */
+  --ravenwits-green-dark: #64902F;
+  --ravenwits-green-medium: #77B12B;
+  --ravenwits-green-light: #A3C620;
+  /* Neutrals */
+  --ravenwits-black: #1D1D1B;
+  --ravenwits-white: #FFFFFF;
+  /* Extended palette for UI */
+  --ravenwits-green-darker: #507326;
+  --ravenwits-green-lighter: #92C155;
+  --ravenwits-green-lightest: #C8DD79;
+
+  /* Infima/Docusaurus overrides - light mode */
+  --ifm-color-primary: #64902F;
+  --ifm-color-primary-dark: #5a822a;
+  --ifm-color-primary-darker: #507326;
+  --ifm-color-primary-darkest: #425e1f;
+  --ifm-color-primary-light: #77B12B;
+  --ifm-color-primary-lighter: #92C155;
+  --ifm-color-primary-lightest: #A3C620;
+
+  /* Typography - Roboto (body), DM Sans (headings) per brand guidelines */
+  --ifm-font-family-base: 'Roboto', Arial, sans-serif;
+  --ifm-font-family-monospace: 'Roboto Mono', 'Consolas', monospace;
+  --ifm-heading-font-family: 'DM Sans', Arial, sans-serif;
+  --ifm-heading-font-weight: 600;
+
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(100, 144, 47, 0.15);
+}
+
+/* Dark mode - lighter greens for readability on dark backgrounds */
+[data-theme='dark'] {
+  --ifm-color-primary: #77B12B;
+  --ifm-color-primary-dark: #64902F;
+  --ifm-color-primary-darker: #507326;
+  --ifm-color-primary-darkest: #3C561C;
+  --ifm-color-primary-light: #92C155;
+  --ifm-color-primary-lighter: #A3C620;
+  --ifm-color-primary-lightest: #B5D14D;
+
+  --docusaurus-highlighted-code-line-bg: rgba(119, 177, 43, 0.2);
+}
+
+/* Apply corporate typography globally */
+html,
+body {
+  font-family: var(--ifm-font-family-base);
+}
+
+h1, h2, h3, h4, h5, h6,
+.navbar__title,
+.footer__title,
+.menu__link--sublist,
+.hero__title,
+.hero__subtitle {
+  font-family: var(--ifm-heading-font-family);
+}
+
+/* Hero section - Ravenwits green background */
+.hero--primary {
+  background: linear-gradient(135deg, var(--ravenwits-green-dark) 0%, var(--ravenwits-green-medium) 50%, var(--ravenwits-green-light) 100%);
+  color: var(--ravenwits-white);
+}
+
+.hero--primary .hero__title,
+.hero--primary .hero__subtitle {
+  color: var(--ravenwits-white);
+}
+
+/* Navbar - subtle brand styling */
+.navbar {
+  border-bottom: 2px solid var(--ravenwits-green-medium);
+}
+
+.navbar__link--active {
+  color: var(--ravenwits-green-dark);
+  font-weight: 500;
+}
+
+/* GitHub icon in navbar - replace text with logo */
+.navbar__github-icon {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  font-size: 0;
+}
+
+.navbar__github-icon::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-image: url('/img/github.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.navbar__github-icon:hover::before {
+  opacity: 0.8;
+}
+
+[data-theme='dark'] .navbar__github-icon::before {
+  filter: invert(1);
+}
+
+/* Hide external link icon next to GitHub logo */
+.navbar__github-icon svg {
+  display: none;
+}
+
+/* Footer - dark green for brand consistency */
+.footer--dark {
+  --ifm-footer-background-color: #283A13;
+  --ifm-footer-link-color: var(--ravenwits-green-lighter);
+  --ifm-footer-link-hover-color: var(--ravenwits-green-light);
+}
+
+/* Center footer content */
+.footer__links {
+  justify-content: center;
+}
+
+.footer__col {
+  text-align: center;
+}
+
+/* Links */
+a {
+  color: var(--ravenwits-green-dark);
+}
+
+[data-theme='dark'] a {
+  color: var(--ravenwits-green-light);
+}
+
+a:hover {
+  color: var(--ravenwits-green-medium);
+}
+
+/* Buttons - secondary with brand green */
+.button--secondary {
+  --ifm-button-background-color: var(--ravenwits-white);
+  --ifm-button-border-color: var(--ravenwits-white);
+  color: var(--ravenwits-green-dark);
+}
+
+.button--secondary:hover {
+  --ifm-button-background-color: rgba(255, 255, 255, 0.9);
+  --ifm-button-border-color: var(--ravenwits-white);
+  color: var(--ravenwits-green-darker);
+}
+
+/* Sidebar active item */
+.menu__link--active:not(.menu__link--sublist) {
+  color: var(--ravenwits-green-dark);
+  font-weight: 500;
+}
+
+[data-theme='dark'] .menu__link--active:not(.menu__link--sublist) {
+  color: var(--ravenwits-green-light);
+}
+
+/* Breadcrumbs */
+.breadcrumbs__link {
+  color: var(--ravenwits-green-dark);
+}
+
+[data-theme='dark'] .breadcrumbs__link {
+  color: var(--ravenwits-green-light);
+}
