@@ -1,6 +1,6 @@
 ---
-sidebar_position: 4
-title: API Reference Overview
+sidebar_position: 1
+title: Overview
 ---
 
 # API Reference
@@ -31,9 +31,7 @@ You can try the API in several ways:
 
 2. **Copy and run the examples** — Each endpoint page in this reference includes a **Request** section with a `curl` command. Replace `{your-token}` with your Bearer token, then run the command in your terminal.
 
-3. **Interactive API docs** — Open [https://api.ravenwits.com/docs/v0/](https://api.ravenwits.com/docs/v0/) in your browser to browse endpoints and, where available, send test requests.
-
-4. **Postman or similar** — Use the base URL `https://api.ravenwits.com` and add the header `Authorization: Bearer <token>`. Use the paths and bodies from this reference.
+3. **Postman or similar** — Use the base URL `https://api.ravenwits.com` and add the header `Authorization: Bearer <token>`. Use the paths and bodies from this reference.
 
 ## Detailed endpoint docs
 

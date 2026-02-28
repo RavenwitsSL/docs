@@ -65,11 +65,6 @@ const config: Config = {
       },
       items: [
         {
-          to: '/api-playground',
-          label: 'API Playground',
-          position: 'right',
-        },
-        {
           href: 'https://github.com/RavenwitsSL',
           label: 'GitHub',
           'aria-label': 'GitHub',
