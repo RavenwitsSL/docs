@@ -3,46 +3,32 @@ sidebar_position: 1
 slug: /
 ---
 
-# Tutorial Intro
+# Welcome to Ravenwits
 
-Let's discover **Docusaurus in less than 5 minutes**.
+This documentation helps you get started with the Ravenwits customer platform. Whether you prefer the **web portal** or the **API**, you’ll find everything you need here.
 
-## Getting Started
+## What is the Ravenwits customer platform?
 
-Get started by **creating a new site**.
+The platform gives you access to your strategies, purchase submission, and forecasts. You can:
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+- **Use the web portal** at **[portal.ravenwits.com](https://portal.ravenwits.com)** to sign in, view dashboards, manage strategies, submit and track purchases, and see forecasts—all in your browser.
+- **Use the API** at **api.ravenwits.com** to integrate with your own systems, automate workflows, or build custom tools. All API requests go to **https://api.ravenwits.com**.
 
-### What you'll need
+Your account (email and password) works for both the portal and the API. You sign in once to get a token, then use that token for API calls or stay logged in on the portal.
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+## Documentation overview
 
-## Generate a new site
+- **[Getting Started](/getting-started)** — How to access the web portal and the API. No technical setup required.
+- **[API Usage](/api-usage/authentication)** — How authentication works so you can call the API securely.
+- **[API Reference](/api-reference/overview)** — Full list of endpoints, request and response formats, and a playground to try requests.
 
-Generate a new Docusaurus site using the **classic template**.
+## Quick links
 
-The classic template will automatically be added to your project after you run the command:
+| Resource | URL |
+| -------- | --- |
+| **Web portal (UI)** | [https://portal.ravenwits.com](https://portal.ravenwits.com) |
+| **API base** | [https://api.ravenwits.com](https://api.ravenwits.com) |
+| **API Playground** | [Try the API from the docs](/api-playground) |
+| **API health check** | [https://api.ravenwits.com/health/](https://api.ravenwits.com/health/) |
 
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+If you have any questions, contact your account manager or [Ravenwits support](mailto:info@ravenwits.com).
