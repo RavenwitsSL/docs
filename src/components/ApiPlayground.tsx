@@ -31,11 +31,27 @@ const ENDPOINTS = [
   },
   {
     id: 'forecasts',
-    label: 'Latest forecast',
+    label: 'Custom forecast',
     method: 'GET',
-    path: '/api/v0/forecasts/latest/',
+    path: '/api/v0/forecasts/custom/',
     auth: true,
-    queryParams: [{ name: 'format', placeholder: 'json', optional: true }],
+    queryParams: [
+      { name: 'type', placeholder: 'Forecast', optional: true },
+      { name: 'format', placeholder: 'json', optional: true },
+    ],
+    body: null,
+  },
+  {
+    id: 'forecasts-normalized',
+    label: 'Normalized forecast',
+    method: 'GET',
+    path: '/api/v0/forecasts/normalized/',
+    auth: true,
+    queryParams: [
+      { name: 'plant', placeholder: 'e.g. PlantA', optional: true },
+      { name: 'timezone', placeholder: 'e.g. EUR-MAD', optional: true },
+      { name: 'format', placeholder: 'json', optional: true },
+    ],
     body: null,
   },
 ];

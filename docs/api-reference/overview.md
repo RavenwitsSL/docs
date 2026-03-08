@@ -20,7 +20,8 @@ All endpoints use the base URL **https://api.ravenwits.com**. The examples below
 | **POST** | `/api/v0/user/<user>/submit-purchase` | Bearer | Submit a new purchase. |
 | **PUT** | `/api/v0/user/<user>/purchase/<uuid>/update` | Bearer | Update an existing purchase (e.g. status, outputs). |
 | **GET** | `/api/v0/user/<user>/purchase/<uuid>/get` | Bearer | Get one purchase by ID. |
-| **GET** | `/api/v0/forecasts/latest/` | Bearer | Get the latest forecast (JSON or CSV). |
+| **GET** | `/api/v0/forecasts/custom/` | Bearer | Get latest forecast(s) by type (Forecast, DailyHourly, or all) as JSON, CSV, or ZIP. |
+| **GET** | `/api/v0/forecasts/normalized/` | Bearer | Get latest normalized forecast per plant (standard for UI); optional plant and timezone; JSON or CSV. |
 | **GET** | `/health/` | No | Health check; returns `{"status": "healthy"}`. |
 
 ## Try the API (playground)
@@ -40,5 +41,6 @@ You can try the API in several ways:
 - [Submit purchase](/api-reference/purchases#submit-purchase) — **POST** `/api/v0/user/<user>/submit-purchase`
 - [Update purchase](/api-reference/purchases#update-purchase) — **PUT** `/api/v0/user/<user>/purchase/<uuid>/update`
 - [Get purchase](/api-reference/purchases#get-purchase) — **GET** `/api/v0/user/<user>/purchase/<uuid>/get`
-- [Latest forecast](/api-reference/forecasts) — **GET** `/api/v0/forecasts/latest/`
+- [Custom forecast](/api-reference/forecasts-custom) — **GET** `/api/v0/forecasts/custom/`
+- [Normalized forecast](/api-reference/forecasts-normalized) — **GET** `/api/v0/forecasts/normalized/`
 - [Health check](/api-reference/health) — **GET** `/health/`
