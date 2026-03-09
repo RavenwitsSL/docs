@@ -7,7 +7,7 @@ title: Normalized forecast
 
 Standard forecast endpoint consumed by the [portal](https://portal.ravenwits.com). Returns the latest normalized forecast file for each plant.
 
-The API returns the most recently modified file per plant (or per selected plants) as a single JSON array. Datetime columns are stored in UTC; you can convert them to a requested timezone with the `timezone` query parameter.
+The API returns the most recently modified file per plant (or per selected plants) as a single JSON array. Datetime columns represent the end of each period and are stored in UTC; you can convert them to a requested timezone with the `timezone` query parameter. Prediction values represent energy in kWh for the period ending at the datetime.
 
 **GET** `https://api.ravenwits.com/api/v0/forecasts/normalized/`
 
@@ -78,7 +78,7 @@ Datetimes in the file are in UTC; the API converts them to the requested timezon
 
 ### 200 OK — Success (format=json)
 
-Response body is a JSON array of objects. Each object has a `plant` field plus the columns from the normalized file. The API normalizes the first column to `datetime` and the second to `pred`. Datetime values are converted when `timezone` is provided.
+Response body is a JSON array of objects. Each object has a `plant` field plus the columns from the normalized file. The API normalizes the first column to `datetime` and the second to `pred`. Datetime values represent the end of the period and are converted when `timezone` is provided. Prediction values represent energy in kWh for the period ending at the datetime.
 
 **Example response body** (one plant, excerpt):
 
