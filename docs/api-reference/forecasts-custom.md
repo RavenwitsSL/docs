@@ -5,9 +5,7 @@ title: Custom forecast
 
 # Custom forecast
 
-Returns the latest forecast file(s) for the authenticated customer. Forecasts can have different types (e.g. `Forecast`, `DailyHourly`). You can request a single type or all types, and get the response as JSON or CSV (or a ZIP when requesting all types as CSV).
-
-**Note:** The customer UI or [portal](https://portal.ravenwits.com) uses the [Normalized forecast](/api-reference/forecasts-normalized) endpoint (`/api/v0/forecasts/normalized/`), which has a standard format and path for all customers. The custom forecast endpoint is for customer-specific formats and file types.
+Returns the latest forecast file(s) for the authenticated customer. Forecasts can have different types (e.g. `Forecast`, `DailyHourly`). These types can be agreed beforehand with the user based on their needs. You can request a single type or all types, and get the response as JSON or CSV (or a ZIP when requesting all types as CSV).
 
 **GET** `https://api.ravenwits.com/api/v0/forecasts/custom/`
 

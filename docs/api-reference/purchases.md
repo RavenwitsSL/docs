@@ -5,7 +5,7 @@ title: Purchases
 
 # Purchases
 
-Endpoints to submit, update, and retrieve purchases.
+Endpoints to submit, update, and retrieve energy purchase strategies.
 
 ---
 
