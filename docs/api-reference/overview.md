@@ -22,6 +22,13 @@ All endpoints use the base URL **https://api.ravenwits.com**. The examples below
 | **GET** | `/api/v0/user/<user>/purchase/<uuid>/get` | Bearer | Get one purchase by ID. |
 | **GET** | `/api/v0/forecasts/custom/` | Bearer | Get latest forecast(s) by type (Forecast, DailyHourly, or all) as JSON, CSV, or ZIP. |
 | **GET** | `/api/v0/forecasts/normalized/` | Bearer | Get latest normalized forecast per plant (standard for UI); optional plant and timezone; JSON or CSV. |
+| **GET** | `/api/v0/plants/` | Bearer | List plants for the logged-in customer. |
+| **POST** | `/api/v0/plants/` | Bearer | Create a plant. |
+| **GET/PATCH/PUT** | `/api/v0/plants/<uuid>/` | Bearer | Get or update one plant. |
+| **GET** | `/api/v0/unavailabilities/` | Bearer | List unavailabilities (optional `plant_id`). |
+| **POST** | `/api/v0/unavailabilities/` | Bearer | Create unavailability interval. |
+| **GET/PATCH/PUT** | `/api/v0/unavailabilities/<uuid>/` | Bearer | Get or update one record. |
+| **POST** | `/api/v0/telemetry/upload/` | Bearer | Upload CSV telemetry (multipart). |
 | **GET** | `/health/` | No | Health check; returns `{"status": "healthy"}`. |
 
 ## Try the API (playground)
@@ -43,4 +50,7 @@ You can try the API in several ways:
 - [Get purchase](/api-reference/purchases#get-purchase) — **GET** `/api/v0/user/<user>/purchase/<uuid>/get`
 - [Custom forecast](/api-reference/forecasts-custom) — **GET** `/api/v0/forecasts/custom/`
 - [Normalized forecast](/api-reference/forecasts-normalized) — **GET** `/api/v0/forecasts/normalized/`
+- [Plants](/api-reference/plants) — **GET/POST** `/api/v0/plants/`, **GET/PATCH/PUT** `/api/v0/plants/<uuid>/`
+- [Unavailabilities](/api-reference/unavailabilities) — **GET/POST** `/api/v0/unavailabilities/`, **GET/PATCH/PUT** `/api/v0/unavailabilities/<uuid>/`
+- [Telemetry upload](/api-reference/telemetry-upload) — **POST** `/api/v0/telemetry/upload/` (CSV)
 - [Health check](/api-reference/health) — **GET** `/health/`
