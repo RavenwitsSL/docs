@@ -9,7 +9,7 @@ The customer API is served under the base path **`/api/v0/`**. All authenticated
 
 ## Base URL
 
-All endpoints use the base URL **<https://api.ravenwits.com>**. The examples below use this URL.
+All endpoints use the base URL `https://api.ravenwits.com`. The examples below use this URL.
 
 ## Endpoints summary
 
