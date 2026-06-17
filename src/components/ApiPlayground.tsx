@@ -4,14 +4,6 @@ const API_BASE = 'https://api.ravenwits.com';
 
 const ENDPOINTS = [
   {
-    id: 'health',
-    label: 'Health check',
-    method: 'GET',
-    path: '/health/',
-    auth: false,
-    body: null,
-  },
-  {
     id: 'login',
     label: 'Login',
     method: 'POST',
@@ -70,7 +62,7 @@ function buildUrl(path: string, pathParams: Record<string, string>, queryParams:
 }
 
 export default function ApiPlayground(): JSX.Element {
-  const [selectedId, setSelectedId] = useState('health');
+  const [selectedId, setSelectedId] = useState('login');
   const [token, setToken] = useState('');
   const [pathParams, setPathParams] = useState<Record<string, string>>({});
   const [queryParams, setQueryParams] = useState<Record<string, string>>({});

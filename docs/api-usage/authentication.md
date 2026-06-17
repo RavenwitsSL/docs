@@ -5,7 +5,7 @@ title: Authentication
 
 # API Usage: Authentication
 
-All API calls (except login and health check) require **authentication**. You sign in once to get a **Bearer token**, then send that token with every request.
+All API calls (except login) require **authentication**. You sign in once to get a **Bearer token**, then send that token with every request.
 
 ## How it works
 
@@ -74,6 +74,5 @@ curl -X GET "https://api.ravenwits.com/api/v0/strategies/your-user?idretailer=12
 ## Endpoints that do not require authentication
 
 - **POST** `/api/v0/auth/login/` — Login (you send email and password instead of a token).
-- **GET** `/health/` — Health check; returns `{"status": "healthy"}`.
 
 All other endpoints listed in the [API Reference](/api-reference/overview) require the `Authorization: Bearer <token>` header. If the token is missing, invalid, or expired, the API returns **401 Unauthorized**.
