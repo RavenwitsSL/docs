@@ -161,9 +161,3 @@ curl --request PATCH \
 | 400 | Validation error (e.g. duplicate name, invalid `technology_type`). |
 
 ---
-
-## Notes
-
-- **Training timestamps** are stored as free-form strings (e.g. `YYYY-MM-DD HH:MM`) so you can align with existing pipelines; they are not validated as datetimes by the API.
-- **Junior spec correction:** Use **`HH:MM`** (hours:minutes), not `HH:SS`, for clock time unless you intentionally store seconds.
-- Run migrations after deploy so the `customers_customerplant` table exists (`python manage.py migrate`).

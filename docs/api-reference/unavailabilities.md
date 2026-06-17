@@ -144,4 +144,3 @@ curl --request DELETE \
 ## Notes
 
 - **`plant_id`** is validated against your **Plants** list; create plants first via `/api/v0/plants/`.
-- Run migrations after deploy: `python manage.py migrate`.

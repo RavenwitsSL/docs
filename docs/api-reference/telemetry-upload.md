@@ -5,15 +5,9 @@ title: Telemetry upload
 
 # Telemetry upload (CSV)
 
-Upload **generation telemetry** as a single **CSV** file per request. The server writes to S3:
+Upload **generation telemetry** as a single **CSV** file per request:
 
-`s3://{AWS_TELEMETRY_BUCKET_NAME}/{customer_name}/telemetry/{plant_id}_onlineHist.csv`
-
-- **`AWS_TELEMETRY_BUCKET_NAME`** — environment variable on the API (required for uploads).
-- **`customer_name`** — the authenticated customer’s name (same as elsewhere in S3).
-- **`plant_id`** — form field; must match an existing **plant name** for that customer.
-
-Each upload **overwrites** the object for that customer + plant (`…_onlineHist.csv`).
+- **`plant_id`** — form field; must match an existing **plant identifier** for that customer.
 
 **POST** `https://api.ravenwits.com/api/v0/telemetry/upload/`
 
@@ -55,14 +49,3 @@ curl --request POST \
 | **502** | S3 upload failure (permissions, network). |
 
 ---
-
-## Configuration
-
-Set on the API host:
-
-```env
-AWS_TELEMETRY_BUCKET_NAME=your-telemetry-bucket
-```
-
-IAM (or equivalent) must allow `s3:PutObject` on  
-`arn:aws:s3:::your-telemetry-bucket/*` (or prefix per customer if you restrict further).
