@@ -128,8 +128,3 @@ Error retrieving or parsing the forecast.
 ```
 
 ---
-
-## Relation to Custom forecast
-
-- **Normalized forecast** (`/api/v0/forecasts/normalized/`) — Standard format and path for all customers.
-- **Custom forecast** (`/api/v0/forecasts/custom/`) — Customer-specific format and file types (e.g. `Forecast_*`, `DailyHourly_*`). Content and structure may differ per customer.
