@@ -42,7 +42,7 @@ curl --request POST \
 
 | Status | Body |
 | ------ | ---- |
-| **201** | `{ "ok": true, "bucket": "…", "key": "{customer}/telemetry/{plant}_onlineHist.csv", "message": "…" }` |
+| **201** | `{ "message": "…" }` |
 | **400** | Missing `plant_id` / `file`, not `.csv`, unknown plant, etc. |
 | **401** | Invalid or missing token. |
 | **503** | `AWS_TELEMETRY_BUCKET_NAME` not set. |
