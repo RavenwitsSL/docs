@@ -19,17 +19,17 @@ Requires **Bearer token** (same as login).
 | ----- | ---- | ----------------- | ----------- |
 | `id` | UUID | — | Set by server. |
 | `name` | string | Yes | Plant name or external ID (unique per customer; often matches forecast plant codes). |
-| `lat` | number | Yes | Latitude, decimal degrees (e.g. `42.94972`). |
-| `lon` | number | Yes | Longitude, decimal degrees (e.g. `-3.67893`). |
-| `installed_capacity_mw` | number | Yes | Installed capacity (MW). |
-| `nominal_capacity_mw` | number | Yes | Nominal capacity (MW). |
+| `lat` | string or number | Yes | Latitude, decimal degrees (e.g. `42.94972`). |
+| `lon` | string or number | Yes | Longitude, decimal degrees (e.g. `-3.67893`).|
+| `installed_capacity_mw` | string or number | Yes | Installed capacity (MW). |
+| `nominal_capacity_mw` | string or number | Yes | Nominal capacity (MW). |
 | `area` | string | Yes | Region/map code (e.g. `ESP`). |
-| `technology_type` | string | Yes | `"eolica"` or `"solar"`. |
+| `technology_type` | string | Yes | `"wind"` or `"solar"`. |
 | `last_training_cnn_at` | string | No | Last CNN training time, e.g. `YYYY-MM-DD HH:MM`, or empty. |
 | `last_training_trees_at` | string | No | Last tree-model training time, or empty. |
-| `agrupation` | string | No | Optional cluster for aggregated forecasts. |
+| `agrupation` | string | Yes | Optional cluster for aggregated forecasts. |
 | `customer_display_name` | string | No | Optional label on this record. |
-| `timezone` | string | No | IANA timezone (e.g. `Europe/Madrid`). |
+| `timezone` | string | Yes | IANA timezone (e.g. `Europe/Madrid`). |
 | `created_at` | ISO datetime | — | Server timestamps. |
 | `updated_at` | ISO datetime | — | |
 
@@ -64,7 +64,7 @@ curl --request GET \
     "installed_capacity_mw": "18.000",
     "nominal_capacity_mw": "18.000",
     "area": "ESP",
-    "technology_type": "eolica",
+    "technology_type": "wind",
     "last_training_cnn_at": "2025-01-15 08:30",
     "last_training_trees_at": "",
     "agrupation": "",
@@ -99,7 +99,7 @@ curl --request POST \
     "installed_capacity_mw": 18.0,
     "nominal_capacity_mw": 18.0,
     "area": "ESP",
-    "technology_type": "eolica",
+    "technology_type": "wind",
     "last_training_cnn_at": "",
     "last_training_trees_at": "",
     "agrupation": "",
@@ -152,11 +152,39 @@ curl --request PATCH \
 
 ---
 
+## Delete plant
+
+**DELETE** `https://api.ravenwits.com/api/v0/plants/{plant_id}/`
+
+Permanently deletes the plant with the given UUID. Only plants owned by the authenticated customer can be deleted.
+
+### Request
+
+```bash
+curl --request DELETE \
+  --url 'https://api.ravenwits.com/api/v0/plants/{plant_id}/' \
+  --header 'Authorization: Bearer {your-token}'
+```
+
+### Response
+
+`204 No Content` — plant deleted, empty response body.
+
+`404 Not Found` — wrong UUID or plant belongs to another customer:
+
+```json
+{
+  "detail": "Not found."
+}
+```
+
+---
+
 ## Errors
 
 | Status | Meaning |
 | ------ | ------- |
-| 401 | Missing or invalid Bearer token. |
+| 403 | Missing or invalid Bearer token. |
 | 404 | Plant not found or not owned by customer. |
 | 400 | Validation error (e.g. duplicate name, invalid `technology_type`). |
 
