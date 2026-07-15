@@ -62,13 +62,53 @@ curl --request POST \
 
 ```json
 {
-  "id": "550e8400-e29b-41d4-a716-446655440000",
+  "id": "00000000-0000-0000-0000-000000000000",
   "status": "pending",
   "created_at": "2024-01-15T14:35:00Z",
   "rows_uploaded": 2,
-  "error": null,
-  "message": "Purchase created successfully with ID: ..."
+  "error": "",
+  "message": "CustomerPurchase created successfully with ID: XX for user: XX and retailer: XX"
 }
+```
+
+### 403 Forbidden
+
+```json
+{"detail": "Authentication credentials were not provided."}
+```
+
+### 400 Bad Request
+
+Various validation errors:
+
+```json
+{"error": "Missing required URL parameter \"user\"."}
+```
+
+```json
+{"error": "Missing required field \"purchase\"."}
+```
+
+```json
+{"error": "Field \"purchase\" must be an array of objects."}
+```
+
+```json
+{"error": "Purchase item at index 0 is missing required field \"datetime\"."}
+```
+
+```json
+{"error": "Purchase item at index 0: invalid datetime format. Expected \"YYYY-MM-DD HH:MM\" (e.g., \"2024-01-15 14:30\")."}
+```
+
+```json
+{"error": "Purchase item at index 0: field \"purchase\" must be a number (in MW unit)."}
+```
+
+### 500 Internal Server Error
+
+```json
+{"error": "Internal server error while creating purchase."}
 ```
 
 ---
@@ -93,7 +133,7 @@ Requires **Bearer token**.
 | Field    | Type   | Required | Description |
 | -------- | ------ | -------- | ----------- |
 | `outputs`| object | Yes      | Strategy output data to store |
-| `status` | string | Yes      | One of: `failed`, `pending`, `in_progress`, `completed` |
+| `status` | string | No       | One of: `failed`, `pending`, `in_progress`, `completed` |
 | `error`  | string | No       | Error message (e.g. when status is `failed`) |
 
 ### Request
@@ -104,19 +144,55 @@ curl --request PUT \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --header 'Authorization: Bearer {your-token}' \
-  --data '{"outputs": {...}, "status": "completed", "error": ""}'
+  --data '{
+    "status": "completed",
+    "error": "",
+    "outputs": [
+      {
+        "idmodel": 1,
+        "value": {
+          "MD": [
+            {"datetime": "YYYY-MM-DD HH:MM", "purchase_percentage": 1.0, "sale_percentage": 0.0},
+            ...
+          ],
+          "MID1": [...],
+          "MID2": [...],
+          "MID3": [...]
+        }
+      },
+      {
+        "idmodel": 2,
+        "value": {
+          "MD": [...],
+          "MID1": [...]
+        }
+      }
+    ]
+  }'
 ```
 
 ### Response — 200 OK
 
 ```json
 {
-  "id": "550e8400-e29b-41d4-a716-446655440000",
-  "status": "completed",
+  "id": "00000000-0000-0000-0000-000000000000",
+  "status": "pending",
   "error": "",
   "updated_at": "2024-01-15T14:35:00Z",
   "message": "CustomerPurchase ... updated successfully"
 }
+```
+
+### 401 Unauthorized
+
+```json
+{"detail": "Authentication credentials were not provided."}
+```
+
+### 400 Bad Request
+
+```json
+{"error": "Missing required field \"outputs\"."}
 ```
 
 ### 404 Not Found
@@ -161,19 +237,80 @@ curl --request GET \
 
 Optional: append `?idmodel=123` to filter by model.
 
-### Response — 200 OK
+### Response — 200 OK (with `idmodel`)
+
+If the `idmodel` query parameter is provided, `strategy_output` contains only the matching model object:
 
 ```json
 {
-  "id": "550e8400-e29b-41d4-a716-446655440000",
-  "status": "completed",
+  "id": "00000000-0000-0000-0000-000000000000",
+  "status": "pending",
   "error": "",
   "created_at": "2024-01-15T14:35:00Z",
-  "strategy_output": { ... }
+  "strategy_output": {
+    "idmodel": 1,
+    "value": {
+      "MD": [...],
+      "MID1": [...],
+      ...
+    }
+  }
 }
 ```
 
+`idmodel` not found in strategy output:
+
+```json
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "status": "pending",
+  "error": "",
+  "created_at": "2025-01-15T14:30:00Z",
+  "strategy_output": {"error": "idmodel XX not found in strategy_output"}
+}
+```
+
+### Response — 200 OK (without `idmodel`)
+
+If no `idmodel` is provided, `strategy_output` contains all model objects:
+
+```json
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "status": "pending",
+  "error": "",
+  "created_at": "2025-01-15T14:30:00Z",
+  "strategy_output": [
+    {
+      "idmodel": 1,
+      "value": {
+        "MD": [...],
+        "MID1": [...],
+        ...
+      }
+    },
+    {
+      "idmodel": 2,
+      "value": {
+        "MD": [...],
+        "MID1": [...],
+        ...
+      }
+    },
+    ...
+  ]
+}
+```
+
+### 403 Forbidden
+
+```json
+{"detail": "Authentication credentials were not provided."}
+```
+
 ### 404 Not Found
+
+Purchase not found:
 
 ```json
 {"error": "Purchase not found."}

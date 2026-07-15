@@ -64,6 +64,10 @@ Missing path or query parameter.
 
 Missing or invalid Bearer token.
 
+```json
+{"detail": "Authentication credentials were not provided."}
+```
+
 ### 500 Internal Server Error
 
 Error while retrieving strategies.
