@@ -7,7 +7,7 @@ title: Outages
 
 This endpoint allows you to upload outages data files to the Ravenwits system. The endpoint accepts CSV files containing outages information and processes them for analysis.
 
-**POST** `https://api.ravenwits.com/api/v0/ingestion/outages/`
+**POST** `https://api.ravenwits.com/api/v0/outages`
 
 ---
 
@@ -41,7 +41,7 @@ file: [CSV file data]
 curl -X POST \
   -F "token=your_api_token_here" \
   -F "file=@outages_data.csv" \
-  https://api.ravenwits.com/api/v0/ingestion/outages/
+  https://api.ravenwits.com/api/v0/outages
 ```
 
 ---
