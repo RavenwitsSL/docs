@@ -16,6 +16,7 @@ All endpoints use the base URL `https://api.ravenwits.com`. The examples below u
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
 | **POST** | `/api/v0/auth/login/` | No | Sign in with email and password; returns a Bearer token. |
+| **POST** | `/api/v0/auth/password/` | Bearer | Change the authenticated user's password; invalidates all existing tokens. |
 | **GET** | `/api/v0/strategies/<user>` | Bearer | List strategies for a user (requires `idretailer`). |
 | **POST** | `/api/v0/user/<user>/submit-purchase` | Bearer | Submit a new purchase. |
 | **PUT** | `/api/v0/user/<user>/purchase/<uuid>/update` | Bearer | Update an existing purchase (e.g. status, outputs). |
@@ -43,6 +44,7 @@ You can try the API in several ways:
 ## Detailed endpoint docs
 
 - [Login](/api-reference/auth-login) — **POST** `/api/v0/auth/login/`
+- [Change password](/api-reference/auth-change-password) — **POST** `/api/v0/auth/password/`
 - [List strategies](/api-reference/strategies) — **GET** `/api/v0/strategies/<user>`
 - [Submit purchase](/api-reference/purchases#submit-purchase) — **POST** `/api/v0/user/<user>/submit-purchase`
 - [Update purchase](/api-reference/purchases#update-purchase) — **PUT** `/api/v0/user/<user>/purchase/<uuid>/update`
