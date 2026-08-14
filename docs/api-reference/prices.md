@@ -74,7 +74,7 @@ curl --request GET \
 
 Every response includes the `Last-Modified` header, which indicates when was the latest prediction generated.
 This header follows [RFC 9110](https://datatracker.ietf.org/doc/html/rfc9110#section-8.8.2) format eg. `Last-Modified: Fri, 07 Aug 2026 13:10:00 GMT`.
-The header `Last-Modified` will change depending on the region and market requested because the predictions for all combinations are not generated at the same time.
+The value of the header `Last-Modified` will change depending on the region and market requested because the predictions for all combinations are not generated at the same time.
 
 The response has two fields, `datetime` and `price`.
 `datetime` has the format `YYYY-MM-DD HH:MM` and is in the timezone of the market requested.
