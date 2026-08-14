@@ -3,23 +3,20 @@ sidebar_position: 9
 title: Prices
 ---
 
-# Prices
-
-Retrieve energy price predictions for a given region and market.
+Retrieve the latest price prediction for a region and market.
+This endpoint always returns the latest prediction available
+and the values of the response will change depending on the time of the day on which the request is made.
+The data can be returned as **JSON** (default) or as a **CSV** file.
 
 **Base path:** `/api/v0/prices/`
 
-Requires **Bearer token**.
+Requires **Bearer token** and the correct permissions.
 
----
+## Request
 
-## Get prices prediction
-
-Retrieve the latest price prediction for a region and market. The data can be returned as **JSON** (default) or as a **CSV** file.
+The endpoint only accepts the method **GET** and the URL path must include the region and market identifiers.
 
 **GET** `https://api.ravenwits.com/api/v0/prices/<region>/<market>`
-
-Requires **Bearer token** and the correct permissions.
 
 ### URL parameters
 
@@ -39,6 +36,9 @@ Requires **Bearer token** and the correct permissions.
 
 ### Query parameters
 
+The supported parameters are specified on the table below.
+Any other parameter specified in the request that do not appear in the documentation will make the request fail with a 400 error.
+
 | Name     | Type   | Required | Description                                              |
 | -------- | ------ | -------- | -------------------------------------------------------- |
 | `format` | string | No       | Response format: `json` (default) or `csv`               |
@@ -52,8 +52,6 @@ The response format can be selected either via the `format` query parameter or t
 | `application/json` / `json` (default) | JSON array of objects |
 | `text/csv` / `csv`               | CSV file download       |
 
----
-
 ### Request (JSON)
 
 ```bash
@@ -63,7 +61,27 @@ curl --request GET \
   --header 'Authorization: Bearer {your-token}'
 ```
 
-### Response — 200 OK (JSON)
+### Request (CSV download)
+
+```bash
+curl --request GET \
+  --url 'https://api.ravenwits.com/api/v0/prices/spain/md_pdbc_spain?format=csv' \
+  --header 'Authorization: Bearer {your-token}' \
+  --output spain_md_pdbc_spain.csv
+```
+
+## Response
+
+Every response includes the `Last-Modified` header, which indicates when was the latest prediction generated.
+This header follows [RFC 9110](https://datatracker.ietf.org/doc/html/rfc9110#section-8.8.2) format eg. `Last-Modified: Fri, 07 Aug 2026 13:10:00 GMT`.
+The value of the header `Last-Modified` will change depending on the region and market requested because the predictions for all combinations are not generated at the same time.
+
+The response has two fields, `datetime` and `price`.
+`datetime` has the format `YYYY-MM-DD HH:MM` and is in the timezone of the market requested.
+For example, for the Spanish market, the timezone is `Europe/Madrid` (UTC+2 in summer and UTC+1 in winter).
+`price` is a decimal number with three digits after the decimal point and the unit is EUR/MWh.
+
+### 200 OK — JSON
 
 Returns an array of objects with two fields per row: `datetime` and `price`.
 
@@ -75,33 +93,28 @@ Returns an array of objects with two fields per row: `datetime` and `price`.
 ]
 ```
 
----
-
-### Request (CSV download)
-
-```bash
-curl --request GET \
-  --url 'https://api.ravenwits.com/api/v0/prices/spain/md_pdbc_spain?format=csv' \
-  --header 'Authorization: Bearer {your-token}' \
-  --output spain_md_pdbc_spain.csv
-```
-
-### Response — 200 OK (CSV)
+### 200 OK — CSV
 
 Returns a semicolon-delimited CSV file.
 
-```
+```csv
 datetime;price
 2026-08-07 00:15;165.824
 2026-08-07 00:30;164.077
 2026-08-07 00:45;162.312
 ```
 
----
+### Errors
 
-## Errors
+#### 400 Bad Request
 
-### 401 Unauthorized
+Bad request due to missing or invalid parameters.
+
+```json
+{"detail": "Unknown query parameters: ..."}
+```
+
+#### 401 Unauthorized
 
 Missing or invalid Bearer token.
 
@@ -109,10 +122,18 @@ Missing or invalid Bearer token.
 {"detail": "Authentication credentials were not provided."}
 ```
 
-### 403 Forbidden
+#### 403 Forbidden
 
 Valid token but the account does not have the required permissions.
 
 ```json
 {"detail": "You do not have permission to perform this action."}
+```
+
+#### 406 Not Acceptable
+
+The `Accept` header does not match any of the supported formats.
+
+```json
+{"detail": "Could not satisfy the request Accept header."}
 ```
