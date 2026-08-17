@@ -29,4 +29,4 @@ Your account manager or support can confirm that your account has API access ena
 ## Next steps
 
 - Read [Authentication](/api-usage/authentication) to understand how to get and use your API token.
-- Browse the [API Reference](/api-reference/overview) to see all available endpoints and try them in the playground.
+- Browse the [API Reference](/api-reference/overview) to see all available endpoints and try them in Swagger UI.

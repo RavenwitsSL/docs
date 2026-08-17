@@ -32,11 +32,11 @@ All endpoints use the base URL `https://api.ravenwits.com`. The examples below u
 | **POST** | `/api/v0/telemetry/upload/` | Bearer | Upload CSV telemetry (multipart). |
 | **GET** | `/api/v0/prices/<region>/<market>` | Bearer + market permission | Get latest price prediction as JSON or CSV. |
 
-## Try the API (playground)
+## Try the API (Swagger UI)
 
 You can try the API in several ways:
 
-1. **[API Playground](/api-playground)** — Send live requests from this documentation: choose an endpoint, add your Bearer token (or request body for login), and click **Try it!** to see the response. Works in the browser when the API allows requests from this site.
+1. **Swagger UI** — Send live requests from swagger: Add your Bearer token or login to generate one, choose an endpoint, click **Try it out**, fill required parameters (or request body for login) and click **Execute** to see the response.
 
 2. **Copy and run the examples** — Each endpoint page in this reference includes a **Request** section with a `curl` command. Replace `{your-token}` with your Bearer token, then run the command in your terminal.
 
