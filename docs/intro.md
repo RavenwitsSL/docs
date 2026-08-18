@@ -20,7 +20,7 @@ Your account (email and password) works for both the portal and the API. You sig
 
 - **[Getting Started](/getting-started)** — How to access the web portal and the API. No technical setup required.
 - **[API Usage](/api-usage/authentication)** — How authentication works so you can call the API securely.
-- **[API Reference](/api-reference/overview)** — Full list of endpoints, request and response formats, and a playground to try requests.
+- **[API Reference](/api-reference/overview)** — Full list of endpoints, request and response formats, and Swagger UI to try requests.
 
 ## Quick links
 
@@ -28,6 +28,6 @@ Your account (email and password) works for both the portal and the API. You sig
 | -------- | --- |
 | **Web portal (UI)** | [https://portal.ravenwits.com](https://portal.ravenwits.com) |
 | **API base** | [https://api.ravenwits.com](https://api.ravenwits.com) |
-| **API Playground** | [Try the API from the docs](/api-playground) |
+| **API Swagger UI** | [Try the API from the docs](https://api.ravenwits.com/api/v0/swagger-ui/#/) |
 
 If you have any questions, contact your account manager or [Ravenwits support](mailto:info@ravenwits.com).
