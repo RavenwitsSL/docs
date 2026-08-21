@@ -3,8 +3,6 @@ sidebar_position: 2
 title: Getting Started
 ---
 
-# Getting Started
-
 This section explains how to access the Ravenwits customer platform: the **web portal** and the **API**.
 
 ## Accessing the web portal
@@ -21,12 +19,12 @@ No installation is required—everything runs in the browser.
 
 The Ravenwits API is available at **[https://api.ravenwits.com](https://api.ravenwits.com)**. All API requests use this base URL.
 
-- **Authentication**: To call the API, you first sign in with your email and password to obtain a **token**. You then send this token with each request. See [API Usage – Authentication](/api-usage/authentication) for details.
+- **Authentication**: To call the API, you first sign in with your email and password on the portal and then navigate to the [Settings page](https://portal.ravenwits.com/settings) to create an **API key**. You then send this API key with each request. See [API Usage – Authentication](/api-usage/authentication) for details.
 - **Documentation**: The full list of endpoints, parameters, and examples is in the [API Reference](/api-reference/overview). You can try requests from the reference or with tools like Postman or curl.
 
 Your account manager or support can confirm that your account has API access enabled.
 
 ## Next steps
 
-- Read [Authentication](/api-usage/authentication) to understand how to get and use your API token.
+- Read [Authentication](/api-usage/authentication) to understand how to get and use your API key.
 - Browse the [API Reference](/api-reference/overview) to see all available endpoints and try them in Swagger UI.

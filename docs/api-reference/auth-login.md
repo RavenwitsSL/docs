@@ -3,9 +3,9 @@ sidebar_position: 3
 title: Login
 ---
 
-# Login
+**DEPRECATED** use API keys instead. More information in [Authentication](/api-usage/authentication).
 
-Sign in with your email and password to receive a Bearer token. Use this token in the `Authorization` header for all other API requests.
+Sign in with your email and password to receive a Bearer token.
 
 **POST** `https://api.ravenwits.com/api/v0/auth/login/`
 

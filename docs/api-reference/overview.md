@@ -3,9 +3,7 @@ sidebar_position: 1
 title: Overview
 ---
 
-# API Reference
-
-The customer API is served under the base path **`/api/v0/`**. All authenticated endpoints require the header `Authorization: Bearer <token>`. See [Authentication](/api-usage/authentication) for how to obtain a token.
+The customer API is served under the base path **`/api/v0/`**. All authenticated endpoints require the header `Authorization: Bearer <api-key>`. See [Authentication](/api-usage/authentication) for how to obtain an API key.
 
 ## Base URL
 
@@ -36,11 +34,11 @@ All endpoints use the base URL `https://api.ravenwits.com`. The examples below u
 
 You can try the API in several ways:
 
-1. **Swagger UI** — Send live requests from swagger: Add your Bearer token or login to generate one, choose an endpoint, click **Try it out**, fill required parameters (or request body for login) and click **Execute** to see the response.
+1. **Swagger UI** — Send live requests from swagger: Add your Bearer API key, choose an endpoint, click **Try it out**, fill required parameters (or request body) and click **Execute** to see the response.
 
-2. **Copy and run the examples** — Each endpoint page in this reference includes a **Request** section with a `curl` command. Replace `{your-token}` with your Bearer token, then run the command in your terminal.
+2. **Copy and run the examples** — Each endpoint page in this reference includes a **Request** section with a `curl` command. Replace `{your-api-key}` with your Bearer API key, then run the command in your terminal.
 
-3. **Postman or similar** — Use the base URL `https://api.ravenwits.com` and add the header `Authorization: Bearer <token>`. Use the paths and bodies from this reference.
+3. **Postman or similar** — Use the base URL `https://api.ravenwits.com` and add the header `Authorization: Bearer <api-key>`. Use the paths and bodies from this reference.
 
 ## Detailed endpoint docs
 

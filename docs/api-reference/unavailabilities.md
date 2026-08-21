@@ -9,7 +9,7 @@ Record **availability intervals** per plant (curtailment, unavailability, etc.).
 
 **Base path:** `/api/v0/unavailabilities/`
 
-Requires **Bearer token**.
+Requires **Bearer API key**.
 
 ---
 
@@ -44,7 +44,7 @@ Optional query: **`plant_id`** — restrict to one plant.
 curl --request GET \
   --url 'https://api.ravenwits.com/api/v0/unavailabilities/' \
   --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {your-token}'
+  --header 'Authorization: Bearer {your-api-key}'
 ```
 
 Filter by plant:
@@ -52,7 +52,7 @@ Filter by plant:
 ```bash
 curl --request GET \
   --url 'https://api.ravenwits.com/api/v0/unavailabilities/?plant_id=MY_PLANT_NAME' \
-  --header 'Authorization: Bearer {your-token}'
+  --header 'Authorization: Bearer {your-api-key}'
 ```
 
 ### Response
@@ -71,7 +71,7 @@ curl --request GET \
 curl --request POST \
   --url 'https://api.ravenwits.com/api/v0/unavailabilities/' \
   --header 'Content-Type: application/json' \
-  --header 'Authorization: Bearer {your-token}' \
+  --header 'Authorization: Bearer {your-api-key}' \
   --data '{
     "plant_id": "NORTH_PLANT",
     "start_time_utc": "2025-03-14T08:00:00Z",
@@ -120,7 +120,7 @@ Delete one unavailability record owned by the authenticated customer.
 ```bash
 curl --request DELETE \
   --url 'https://api.ravenwits.com/api/v0/unavailabilities/{id}/' \
-  --header 'Authorization: Bearer {your-token}'
+  --header 'Authorization: Bearer {your-api-key}'
 ```
 
 ### Response
@@ -135,7 +135,7 @@ curl --request DELETE \
 
 | Status | Meaning |
 | ------ | ------- |
-| 401 | Missing or invalid Bearer token. |
+| 401 | Missing or invalid Bearer API key. |
 | 404 | Unknown `id` or not owned by the customer. |
 | 400 | Validation error. |
 

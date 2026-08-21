@@ -3,13 +3,11 @@ sidebar_position: 5
 title: Plants
 ---
 
-# Plants (customer)
-
-Manage generation plants for the **authenticated customer**. Each plant belongs to the customer tied to the Bearer token. Other customers’ plants are never returned.
+Manage generation plants for the **authenticated customer**. Each plant belongs to the customer tied to the Bearer API key.
 
 **Base path:** `/api/v0/plants/`
 
-Requires **Bearer token** (same as login).
+Requires **Bearer API key**.
 
 ---
 
@@ -47,7 +45,7 @@ Returns a JSON **array** of plant objects for the logged-in customer.
 curl --request GET \
   --url 'https://api.ravenwits.com/api/v0/plants/' \
   --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {your-token}'
+  --header 'Authorization: Bearer {your-api-key}'
 ```
 
 ### Response
@@ -91,7 +89,7 @@ curl --request POST \
   --url 'https://api.ravenwits.com/api/v0/plants/' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {your-token}' \
+  --header 'Authorization: Bearer {your-api-key}' \
   --data '{
     "name": "NORTH_PLANT",
     "lat": 42.94972,
@@ -120,7 +118,7 @@ curl --request POST \
 
 **GET** `https://api.ravenwits.com/api/v0/plants/{plant_id}/`
 
-`plant_id` is the plant UUID. Only plants owned by the customer are visible.
+`plant_id` is the plant UUID.
 
 ---
 
@@ -140,7 +138,7 @@ Full replacement: send all writable fields (same as create).
 curl --request PATCH \
   --url 'https://api.ravenwits.com/api/v0/plants/{plant_id}/' \
   --header 'Content-Type: application/json' \
-  --header 'Authorization: Bearer {your-token}' \
+  --header 'Authorization: Bearer {your-api-key}' \
   --data '{"nominal_capacity_mw": 20.0, "last_training_cnn_at": "2025-03-14 10:00"}'
 ```
 
@@ -163,7 +161,7 @@ Permanently deletes the plant with the given UUID. Only plants owned by the auth
 ```bash
 curl --request DELETE \
   --url 'https://api.ravenwits.com/api/v0/plants/{plant_id}/' \
-  --header 'Authorization: Bearer {your-token}'
+  --header 'Authorization: Bearer {your-api-key}'
 ```
 
 ### Response
@@ -184,7 +182,7 @@ curl --request DELETE \
 
 | Status | Meaning |
 | ------ | ------- |
-| 403 | Missing or invalid Bearer token. |
+| 403 | Missing or invalid Bearer API key. |
 | 404 | Plant not found or not owned by customer. |
 | 400 | Validation error (e.g. duplicate name, invalid `technology_type`). |
 

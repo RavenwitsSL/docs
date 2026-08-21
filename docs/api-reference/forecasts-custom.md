@@ -3,13 +3,11 @@ sidebar_position: 4
 title: Custom forecast
 ---
 
-# Custom forecast
-
 Returns the latest forecast file(s) for the authenticated customer. Forecasts can have different types (e.g. `Forecast`, `DailyHourly`). These types can be agreed beforehand with the user based on their needs. You can request a single type or all types, and get the response as JSON or CSV (or a ZIP when requesting all types as CSV).
 
 **GET** `https://api.ravenwits.com/api/v0/forecasts/custom/`
 
-Requires **Bearer token**.
+Requires **Bearer API key**.
 
 ---
 
@@ -30,7 +28,7 @@ Requires **Bearer token**.
 curl --request GET \
   --url 'https://api.ravenwits.com/api/v0/forecasts/custom/' \
   --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {your-token}'
+  --header 'Authorization: Bearer {your-api-key}'
 ```
 
 **Latest DailyHourly as JSON:**
@@ -38,7 +36,7 @@ curl --request GET \
 ```bash
 curl --request GET \
   --url 'https://api.ravenwits.com/api/v0/forecasts/custom/?type=DailyHourly' \
-  --header 'Authorization: Bearer {your-token}'
+  --header 'Authorization: Bearer {your-api-key}'
 ```
 
 **Single type as CSV download:**
@@ -46,7 +44,7 @@ curl --request GET \
 ```bash
 curl --request GET \
   --url 'https://api.ravenwits.com/api/v0/forecasts/custom/?type=Forecast&format=csv' \
-  --header 'Authorization: Bearer {your-token}' \
+  --header 'Authorization: Bearer {your-api-key}' \
   --output forecast.csv
 ```
 
@@ -55,7 +53,7 @@ curl --request GET \
 ```bash
 curl --request GET \
   --url 'https://api.ravenwits.com/api/v0/forecasts/custom/?type=all' \
-  --header 'Authorization: Bearer {your-token}'
+  --header 'Authorization: Bearer {your-api-key}'
 ```
 
 **All types as ZIP of CSVs:**
@@ -63,7 +61,7 @@ curl --request GET \
 ```bash
 curl --request GET \
   --url 'https://api.ravenwits.com/api/v0/forecasts/custom/?type=all&format=csv' \
-  --header 'Authorization: Bearer {your-token}' \
+  --header 'Authorization: Bearer {your-api-key}' \
   --output forecasts.zip
 ```
 
@@ -115,7 +113,7 @@ Customer name not available.
 
 ### 401 Unauthorized
 
-Missing or invalid Bearer token.
+Missing or invalid Bearer API key.
 
 ### 404 Not Found
 

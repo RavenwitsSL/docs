@@ -14,8 +14,6 @@ The platform gives you access to your strategies, purchase submission, and forec
 - **Use the web portal** at **[portal.ravenwits.com](https://portal.ravenwits.com)** to sign in, view dashboards, manage strategies, submit and track purchases, and see forecasts—all in your browser.
 - **Use the API** at **api.ravenwits.com** to integrate with your own systems, automate workflows, or build custom tools. All API requests go to `https://api.ravenwits.com`.
 
-Your account (email and password) works for both the portal and the API. You sign in once to get a token, then use that token for API calls or stay logged in on the portal.
-
 ## Documentation overview
 
 - **[Getting Started](/getting-started)** — How to access the web portal and the API. No technical setup required.

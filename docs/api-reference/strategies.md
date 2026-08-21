@@ -3,13 +3,11 @@ sidebar_position: 6
 title: List strategies
 ---
 
-# List strategies
-
 Returns the list of strategies for a given user and retailer. Used to discover available strategies before submitting purchases.
 
 **GET** `https://api.ravenwits.com/api/v0/strategies/<user>`
 
-Requires **Bearer token**.
+Requires **Bearer API key**.
 
 ---
 
@@ -35,10 +33,10 @@ Requires **Bearer token**.
 curl --request GET \
   --url 'https://api.ravenwits.com/api/v0/strategies/{user}?idretailer={retailer_id}' \
   --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {your-token}'
+  --header 'Authorization: Bearer {your-api-key}'
 ```
 
-Replace `{user}`, `{retailer_id}`, and `{your-token}` with your values.
+Replace `{user}`, `{retailer_id}`, and `{your-api-key}` with your values.
 
 ---
 
@@ -62,7 +60,7 @@ Missing path or query parameter.
 
 ### 401 Unauthorized
 
-Missing or invalid Bearer token.
+Missing or invalid Bearer API key.
 
 ```json
 {"detail": "Authentication credentials were not provided."}
