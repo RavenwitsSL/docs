@@ -3,8 +3,6 @@ sidebar_position: 5
 title: Purchases
 ---
 
-# Purchases
-
 Endpoints to submit, update, and retrieve energy purchase strategies.
 
 ---
@@ -15,7 +13,7 @@ Create a new purchase for a user and retailer.
 
 **POST** `https://api.ravenwits.com/api/v0/user/<user>/submit-purchase`
 
-Requires **Bearer token**.
+Requires **Bearer API key**.
 
 ### URL parameters
 
@@ -49,7 +47,7 @@ curl --request POST \
   --url 'https://api.ravenwits.com/api/v0/user/{user}/submit-purchase?retailer_id={retailer_id}' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {your-token}' \
+  --header 'Authorization: Bearer {your-api-key}' \
   --data '{
     "purchase": [
       {"datetime": "2024-01-15 14:30", "purchase": 12.0},
@@ -119,7 +117,7 @@ Update an existing purchase (e.g. status and strategy outputs). The purchase mus
 
 **PUT** `https://api.ravenwits.com/api/v0/user/<user>/purchase/<purchase_id>/update`
 
-Requires **Bearer token**.
+Requires **Bearer API key**.
 
 ### URL parameters
 
@@ -143,7 +141,7 @@ curl --request PUT \
   --url 'https://api.ravenwits.com/api/v0/user/{user}/purchase/{purchase_id}/update' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {your-token}' \
+  --header 'Authorization: Bearer {your-api-key}' \
   --data '{
     "status": "completed",
     "error": "",
@@ -211,7 +209,7 @@ Retrieve one purchase by ID. The purchase must belong to the authenticated custo
 
 **GET** `https://api.ravenwits.com/api/v0/user/<user>/purchase/<purchase_id>/get`
 
-Requires **Bearer token**.
+Requires **Bearer API key**.
 
 ### URL parameters
 
@@ -232,7 +230,7 @@ Requires **Bearer token**.
 curl --request GET \
   --url 'https://api.ravenwits.com/api/v0/user/{user}/purchase/{purchase_id}/get' \
   --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {your-token}'
+  --header 'Authorization: Bearer {your-api-key}'
 ```
 
 Optional: append `?idmodel=123` to filter by model.

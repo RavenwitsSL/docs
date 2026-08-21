@@ -3,15 +3,13 @@ sidebar_position: 5
 title: Normalized forecast
 ---
 
-# Normalized forecast
-
 Standard forecast endpoint consumed by the [portal](https://portal.ravenwits.com). Returns the latest normalized forecast file for each plant.
 
 The API returns the most recently modified file per plant (or per selected plants) as a single JSON array. Datetime columns represent the end of each period and are stored in UTC; you can convert them to a requested timezone with the `timezone` query parameter. Prediction values represent energy in kWh for the period ending at the datetime.
 
 **GET** `https://api.ravenwits.com/api/v0/forecasts/normalized/`
 
-Requires **Bearer token**.
+Requires **Bearer API key**.
 
 ---
 
@@ -33,7 +31,7 @@ Requires **Bearer token**.
 curl --request GET \
   --url 'https://api.ravenwits.com/api/v0/forecasts/normalized/' \
   --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {your-token}'
+  --header 'Authorization: Bearer {your-api-key}'
 ```
 
 **Specific plant(s):**
@@ -41,7 +39,7 @@ curl --request GET \
 ```bash
 curl --request GET \
   --url 'https://api.ravenwits.com/api/v0/forecasts/normalized/?plant=PlantA&plant=PlantB' \
-  --header 'Authorization: Bearer {your-token}'
+  --header 'Authorization: Bearer {your-api-key}'
 ```
 
 **With timezone (e.g. Europe/Madrid):**
@@ -49,7 +47,7 @@ curl --request GET \
 ```bash
 curl --request GET \
   --url 'https://api.ravenwits.com/api/v0/forecasts/normalized/?timezone=EUR-MAD' \
-  --header 'Authorization: Bearer {your-token}'
+  --header 'Authorization: Bearer {your-api-key}'
 ```
 
 **CSV download:**
@@ -57,7 +55,7 @@ curl --request GET \
 ```bash
 curl --request GET \
   --url 'https://api.ravenwits.com/api/v0/forecasts/normalized/?format=csv' \
-  --header 'Authorization: Bearer {your-token}' \
+  --header 'Authorization: Bearer {your-api-key}' \
   --output normalized_forecast.csv
 ```
 
@@ -105,7 +103,7 @@ Customer name not available.
 
 ### 401 Unauthorized
 
-Missing or invalid Bearer token.
+Missing or invalid Bearer API key.
 
 ### 404 Not Found
 

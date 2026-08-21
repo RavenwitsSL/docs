@@ -3,13 +3,11 @@ sidebar_position: 4
 title: Change Password
 ---
 
-# Change Password
-
 Change the password for the currently authenticated user. All existing Bearer tokens are invalidated on success — you must log in again to obtain a new token.
 
 **POST** `https://api.ravenwits.com/api/v0/auth/password/`
 
-Requires authentication: `Authorization: Bearer <token>`
+Requires **Bearer API key**.
 
 ---
 
@@ -30,7 +28,7 @@ curl --request POST \
   --url https://api.ravenwits.com/api/v0/auth/password/ \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {your-token}' \
+  --header 'Authorization: Bearer {your-api-key}' \
   --data '{
     "old_password": "your-current-password",
     "new_password": "your-new-password",
@@ -38,7 +36,7 @@ curl --request POST \
   }'
 ```
 
-Replace `{your-token}` with your Bearer token and the body fields with your actual passwords.
+Replace `{your-api-key}` with your Bearer API key and the body fields with your actual passwords.
 
 ---
 
@@ -86,7 +84,7 @@ New password fails validation (e.g. too short, too common, too similar to email)
 
 ### 401 Unauthorized
 
-Missing or expired Bearer token. Log in again via [`POST /api/v0/auth/login/`](/api-reference/auth-login) to get a new token.
+Missing or expired Bearer API key.
 
 ### 429 Too Many Requests
 

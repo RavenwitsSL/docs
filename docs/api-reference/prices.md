@@ -10,7 +10,7 @@ The data can be returned as **JSON** (default) or as a **CSV** file.
 
 **Base path:** `/api/v0/prices/`
 
-Requires **Bearer token** and the correct permissions.
+Requires **Bearer API key** and the correct permissions.
 
 ## Request
 
@@ -58,7 +58,7 @@ The response format can be selected either via the `format` query parameter or t
 curl --request GET \
   --url 'https://api.ravenwits.com/api/v0/prices/spain/md_pdbc_spain' \
   --header 'Accept: application/json' \
-  --header 'Authorization: Bearer {your-token}'
+  --header 'Authorization: Bearer {your-api-key}'
 ```
 
 ### Request (CSV download)
@@ -66,7 +66,7 @@ curl --request GET \
 ```bash
 curl --request GET \
   --url 'https://api.ravenwits.com/api/v0/prices/spain/md_pdbc_spain?format=csv' \
-  --header 'Authorization: Bearer {your-token}' \
+  --header 'Authorization: Bearer {your-api-key}' \
   --output spain_md_pdbc_spain.csv
 ```
 
@@ -116,7 +116,7 @@ Bad request due to missing or invalid parameters.
 
 #### 401 Unauthorized
 
-Missing or invalid Bearer token.
+Missing or invalid Bearer API key.
 
 ```json
 {"detail": "Authentication credentials were not provided."}
@@ -124,7 +124,7 @@ Missing or invalid Bearer token.
 
 #### 403 Forbidden
 
-Valid token but the account does not have the required permissions.
+Valid API key but the account does not have the required permissions.
 
 ```json
 {"detail": "You do not have permission to perform this action."}
