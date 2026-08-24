@@ -28,6 +28,7 @@ All endpoints use the base URL `https://api.ravenwits.com`. The examples below u
 | **POST** | `/api/v0/unavailabilities/` | Bearer | Create unavailability interval. |
 | **GET/PATCH/PUT** | `/api/v0/unavailabilities/<uuid>/` | Bearer | Get or update one record. |
 | **POST** | `/api/v0/telemetry/upload/` | Bearer | Upload CSV telemetry (multipart). |
+| **POST** | `/api/v0/outages/upload/` | Bearer | Upload CSV outage records (multipart). |
 | **GET** | `/api/v0/prices/<region>/<market>` | Bearer + market permission | Get latest price prediction as JSON or CSV. |
 
 ## Try the API (Swagger UI)
@@ -53,4 +54,5 @@ You can try the API in several ways:
 - [Plants](/api-reference/plants) — **GET/POST** `/api/v0/plants/`, **GET/PATCH/PUT** `/api/v0/plants/<uuid>/`
 - [Unavailabilities](/api-reference/unavailabilities) — **GET/POST** `/api/v0/unavailabilities/`, **GET/PATCH/PUT** `/api/v0/unavailabilities/<uuid>/`
 - [Telemetry upload](/api-reference/telemetry-upload) — **POST** `/api/v0/telemetry/upload/` (CSV)
+- [Outages upload](/api-reference/outages-upload) — **POST** `/api/v0/outages/upload/` (CSV)
 - [Prices](/api-reference/prices) — **GET** `/api/v0/prices/<region>/<market>`
