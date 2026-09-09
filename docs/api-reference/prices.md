@@ -8,7 +8,7 @@ This endpoint always returns the latest prediction available
 and the values of the response will change depending on the time of the day on which the request is made.
 The data can be returned as **JSON** (default) or as a **CSV** file.
 
-**Base path:** `/api/v0/prices/`
+**Base path:** `/api/v0/prices`
 
 Requires **Bearer API key** and the correct permissions.
 
@@ -37,7 +37,7 @@ The endpoint only accepts the method **GET** and the URL path must include the r
 ### Query parameters
 
 The supported parameters are specified on the table below.
-Any other parameter specified in the request that do not appear in the documentation will make the request fail with a 400 error.
+Any other parameter specified in the request that does not appear in the documentation will make the request fail with a 400 error.
 
 | Name     | Type   | Required | Description                                              |
 | -------- | ------ | -------- | -------------------------------------------------------- |
@@ -72,12 +72,12 @@ curl --request GET \
 
 ## Response
 
-Every response includes the `Last-Modified` header, which indicates when was the latest prediction generated.
+Every response includes the `Last-Modified` header, which indicates when the latest prediction was generated.
 This header follows [RFC 9110](https://datatracker.ietf.org/doc/html/rfc9110#section-8.8.2) format eg. `Last-Modified: Fri, 07 Aug 2026 13:10:00 GMT`.
 The value of the header `Last-Modified` will change depending on the region and market requested because the predictions for all combinations are not generated at the same time.
 
 The response has two fields, `datetime` and `price`.
-`datetime` has the format `YYYY-MM-DD HH:MM` and is in the timezone of the market requested.
+`datetime` has the format `YYYY-MM-DD HH:MM`, is in the timezone of the market requested and represents the start of the 15-minute period.
 For example, for the Spanish market, the timezone is `Europe/Madrid` (UTC+2 in summer and UTC+1 in winter).
 `price` is a decimal number with three digits after the decimal point and the unit is EUR/MWh.
 
