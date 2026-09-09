@@ -5,7 +5,7 @@ title: Telemetry upload
 
 Upload **telemetry** as a single **CSV** file per request.
 There are three possible files that can be sent to this endpoint, each file goes in a separate request.
-The name of the uploaded file must be `generation.csv`, `curtailment.csv` or `availability.csv`.
+The name of the uploaded file must be `generation.csv`, `curtailment.csv`, `availability.csv` or `potential.csv`.
 
 **POST** `https://api.ravenwits.com/api/v0/telemetry/upload/`
 
@@ -72,6 +72,23 @@ Example of `availability.csv`.
 
 ```csv
 period_start;period_end;availability kW
+2025-08-01 15:24:30;2025-08-01 15:26:30;123.45
+2025-08-01 15:26:30;2025-08-01 15:28:30;150.00
+2025-08-01 15:28:30;2025-08-01 15:30:30;150.00
+```
+
+### `potential.csv`
+
+Must have 3 columns, the separator between columns must be a semicolon `;`:
+
+- `period_start`: timestamp of the start of the measurement period in UTC. Format: `YYYY-MM-dd HH:mm:ss` eg. `2025-08-01 15:24:30`
+- `period_end`: timestamp of the end of the measurement period in UTC. Format: `YYYY-MM-dd HH:mm:ss` eg. `2025-08-01 15:26:30`
+- `generation kW`: value of the potential power in kW during that period eg. `123.45`
+
+Example of `potential.csv`.
+
+```csv
+period_start;period_end;generation kW
 2025-08-01 15:24:30;2025-08-01 15:26:30;123.45
 2025-08-01 15:26:30;2025-08-01 15:28:30;150.00
 2025-08-01 15:28:30;2025-08-01 15:30:30;150.00
