@@ -1,5 +1,5 @@
 ---
-sidebar_position: 8
+sidebar_position: 9
 title: Telemetry upload custom
 ---
 
@@ -35,6 +35,5 @@ curl --request POST \
 | **400** | Missing `file`, not `.csv`, unknown plant, etc. |
 | **401** | Invalid or missing API key. |
 | **502** | S3 upload failure (permissions, network). |
-| **503** | Telemetry endpoint not configured. |
 
 ---
