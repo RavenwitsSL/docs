@@ -83,12 +83,12 @@ Must have 3 columns, the separator between columns must be a semicolon `;`:
 
 - `period_start`: timestamp of the start of the measurement period in UTC. Format: `YYYY-MM-dd HH:mm:ss` eg. `2025-08-01 15:24:30`
 - `period_end`: timestamp of the end of the measurement period in UTC. Format: `YYYY-MM-dd HH:mm:ss` eg. `2025-08-01 15:26:30`
-- `generation kW`: value of the potential power in kW during that period eg. `123.45`
+- `potential kW`: value of the potential power in kW during that period eg. `123.45`
 
 Example of `potential.csv`.
 
 ```csv
-period_start;period_end;generation kW
+period_start;period_end;potential kW
 2025-08-01 15:24:30;2025-08-01 15:26:30;123.45
 2025-08-01 15:26:30;2025-08-01 15:28:30;150.00
 2025-08-01 15:28:30;2025-08-01 15:30:30;150.00
