@@ -94,7 +94,7 @@ Set `0` when:
   loss, frozen values, tests, local manual operation;
 - you are unsure about the value.
 
-See [the concepts page](/telemetry-concepts#4.-the-validity-flag) for the
+See [the concepts page](/telemetry-concepts#4-the-validity-flag) for the
 reasoning and for worked cases.
 
 ### `availability.csv`
