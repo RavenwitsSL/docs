@@ -24,7 +24,10 @@ All endpoints use the base URL `https://api.ravenwits.com`. The examples below u
 | **GET** | `/api/v0/plants/` | Bearer | List plants for the logged-in customer. |
 | **POST** | `/api/v0/plants/` | Bearer | Create a plant. |
 | **GET/PATCH/PUT** | `/api/v0/plants/<uuid>/` | Bearer | Get or update one plant. |
+| **POST** | `/api/v0/history/upload/` | Bearer | Upload historical plant data CSV (multipart, validated). |
 | **POST** | `/api/v0/telemetry/upload/` | Bearer | Upload CSV telemetry (multipart). |
+| **POST** | `/api/v0/telemetry/upload-strict/` | Bearer | Upload validated telemetry CSV (multipart). |
+| **POST** | `/api/v0/telemetry/upload-custom/` | Bearer | Upload custom telemetry CSV (multipart). |
 | **GET** | `/api/v0/prices/<region>/<market>` | Bearer + market permission | Get latest price prediction as JSON or CSV. |
 
 ## Try the API (Swagger UI)
@@ -48,5 +51,8 @@ You can try the API in several ways:
 - [Custom forecast](/api-reference/forecasts-custom) — **GET** `/api/v0/forecasts/custom/`
 - [Normalized forecast](/api-reference/forecasts-normalized) — **GET** `/api/v0/forecasts/normalized/`
 - [Plants](/api-reference/plants) — **GET/POST** `/api/v0/plants/`, **GET/PATCH/PUT** `/api/v0/plants/<uuid>/`
+- [History upload](/api-reference/history-upload) — **POST** `/api/v0/history/upload/` (CSV, validated)
 - [Telemetry upload](/api-reference/telemetry-upload) — **POST** `/api/v0/telemetry/upload/` (CSV)
+- [Telemetry upload strict](/api-reference/telemetry-upload-strict) — **POST** `/api/v0/telemetry/upload-strict/` (CSV, validated)
+- [Telemetry upload custom](/api-reference/telemetry-upload-custom) — **POST** `/api/v0/telemetry/upload-custom/` (CSV, custom layout)
 - [Prices](/api-reference/prices) — **GET** `/api/v0/prices/<region>/<market>`

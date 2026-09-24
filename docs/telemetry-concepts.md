@@ -6,7 +6,7 @@ title: Telemetry concepts
 
 **Applies to:** all clients sending operational data to Ravenwits, regardless of
 the format or endpoint used. If you use our recommended CSV format, see also
-the [Telemetry strict](https://docs.ravenwits.com/api-reference/telemetry-strict)
+the [Telemetry upload strict](https://docs.ravenwits.com/api-reference/telemetry-upload-strict)
 API reference. If you send data through a custom integration, the concepts here
 still apply — only the encoding differs.
 
