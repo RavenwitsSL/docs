@@ -33,6 +33,9 @@ The endpoint only accepts the method **GET** and the URL path must include the r
 | `spain`  | `mid_pibc01_spain` |
 | `spain`  | `mid_pibc02_spain` |
 | `spain`  | `mid_pibc03_spain` |
+| `spain`  | `esios_2197` |
+| `spain`  | `esios_10250` |
+| `canarias`  | `phven_canarias` |
 
 ### Query parameters
 
