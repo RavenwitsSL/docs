@@ -84,6 +84,11 @@ The response has two fields, `datetime` and `price`.
 For example, for the Spanish market, the timezone is `Europe/Madrid` (UTC+2 in summer and UTC+1 in winter).
 `price` is a decimal number with three digits after the decimal point and the unit is EUR/MWh.
 
+### Daylight Savings Time (DST) Handling
+
+On days when Daylight Saving Time (DST) starts or ends, the local day contains either 23 or 25 hours instead of the usual 24. Consequently, files containing data for these dates will contain one fewer or one additional hourly interval, respectively.
+Specifically, on the 25-hour day, the local-time interval 02:00–03:00 occurs twice and therefore appears twice in the data. On the 23-hour day, this interval does not occur and is therefore missing from the data.
+
 ### 200 OK — JSON
 
 Returns an array of objects with two fields per row: `datetime` and `price`.
