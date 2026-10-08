@@ -1,7 +1,9 @@
 ---
 sidebar_position: 10
-title: Telemetry upload
+title: Telemetry upload (Deprecated)
 ---
+
+**DEPRECATED** use [telemetry-strict](/api-reference/telemetry-upload-strict) or [telemetry-custom](api-reference/telemetry-upload-custom) instead.
 
 Upload **telemetry** as a single **CSV** file per request.
 The name and the format of the CSV must be agreed upon beforehand.

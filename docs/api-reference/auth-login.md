@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: Login
+title: Login (Deprecated)
 ---
 
 **DEPRECATED** use API keys instead. More information in [Authentication](/api-usage/authentication).
