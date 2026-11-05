@@ -27,15 +27,15 @@ The endpoint only accepts the method **GET** and the URL path must include the r
 
 ### Supported region/market combinations
 
-| `region` | `market`           |
-| -------- | ------------------ |
-| `spain`  | `md_pdbc_spain`    |
-| `spain`  | `mid_pibc01_spain` |
-| `spain`  | `mid_pibc02_spain` |
-| `spain`  | `mid_pibc03_spain` |
-| `spain`  | `esios_2197` |
-| `spain`  | `esios_10250` |
-| `canarias`  | `phven_canarias` |
+| `region` | `market`           | Description                                                                                     | Resolution |
+| -------- | ------------------ | ----------------------------------------------------------------------------------------------- | ---------- |
+| `spain`  | `md_pdbc_spain`    | OMIE day-ahead (DA) market price for Spain.             | 15 minutes |
+| `spain`  | `mid_pibc01_spain` | OMIE intraday auction price for session IDA1 for Spain.   | 15 minutes |
+| `spain`  | `mid_pibc02_spain` | OMIE intraday auction price for session IDA2 for Spain.   | 15 minutes |
+| `spain`  | `mid_pibc03_spain` | OMIE  intraday auction price for session IDA3 for Spain.   | 15 minutes |
+| `spain`  | `esios_2197`       | ESIOS merged marginal price for programmed mFRR (manual frequency restoration reserve) activation. | 15 minutes |
+| `spain`  | `esios_10250`      | ESIOS net energy volume allocated to mFRR activation, measured in MWh.                              | 15 minutes |
+| `canarias` | `phven_canarias` | Sale price for energy in the Canary Islands' (`Phventa`). Based on weighted average of peninsular DA + IDA prices adjusted by the territory's hourly demand profile ([Royal Decree 738/2015, Annex I](https://www.boe.es/eli/es/rd/2015/07/31/738/con#ai)). | 1 hour |
 
 ### Query parameters
 
