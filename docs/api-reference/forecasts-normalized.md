@@ -74,6 +74,9 @@ Datetimes in the file are in UTC; the API converts them to the requested timezon
 
 ## Responses
 
+Every response includes the `Last-Modified` header, which indicates when the latest forecast was generated.
+This header follows [RFC 9110](https://datatracker.ietf.org/doc/html/rfc9110#section-8.8.2) format eg. `Last-Modified: Fri, 07 Aug 2026 13:10:00 GMT`.
+
 ### 200 OK — Success (format=json)
 
 Response body is a JSON array of objects. Each object has a `plant` field plus the columns from the normalized file. The API normalizes the first column to `datetime` and the second to `pred`. Datetime values represent the end of the period and are converted when `timezone` is provided. Prediction values represent energy in kWh for the period ending at the datetime.
