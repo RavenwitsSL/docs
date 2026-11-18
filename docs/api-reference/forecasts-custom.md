@@ -69,6 +69,9 @@ curl --request GET \
 
 ## Responses
 
+Every response includes the `Last-Modified` header, which indicates when the latest forecast was generated.
+This header follows [RFC 9110](https://datatracker.ietf.org/doc/html/rfc9110#section-8.8.2) format eg. `Last-Modified: Fri, 07 Aug 2026 13:10:00 GMT`.
+
 ### 200 OK — Success (format=json, single type)
 
 Response body is a JSON array of objects, one per row of the forecast. Exact fields depend on the forecast file.
